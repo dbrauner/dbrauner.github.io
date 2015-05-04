@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>SAPUI5 Hello World live demo</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        
-        <script id="sap-ui-bootstrap"
-            type="text/javascript"
-            src="openui5/resources/sap-ui-core.js"
-            data-sap-ui-theme="sap_bluecrystal"
-            data-sap-ui-libs="sap.ui.commons">
-        </script>
-        
-        <script type="text/javascript">
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
 
-        </script>
-        
-    </head>
-    
-    <body class="sapUiBody" role="application">
+		<title>My Fiori 0</title>
 
-    </body>
-    
+		<script
+			id="sap-ui-bootstrap"
+			src="openui5/resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-xx-bindingSyntax="complex"
+			data-sap-ui-resourceroots='{
+				"sap.ui.demo.myFiori": "./"
+			}' >
+		</script>
+
+		<script>
+				sap.ui.localResources("view");
+				var app = new sap.m.App({initialPage:"idMain"});
+				var page = sap.ui.view({id:"idMain", viewName:"view.Main", type:sap.ui.core.mvc.ViewType.XML});
+				app.addPage(page);
+				app.placeAt("content");
+		</script>
+
+	</head>
+	<body class="sapUiBody" id="content">
+	</body>
 </html>
