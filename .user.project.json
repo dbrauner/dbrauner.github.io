@@ -1,15 +1,15 @@
 {
   "run": [
     {
-      "filePath": "/MyFioriExercise/index.html",
+      "filePath": "/device/index.html",
       "previewMode": 0,
       "dataMode": 1,
       "workspace": "withoutWorkspace",
       "urlParameters": [],
       "_metadata": {
         "runnerId": "webapprunner",
-        "id": 228611,
-        "displayName": "New Web Application 1"
+        "id": 7557699,
+        "displayName": "New Web Application 5"
       }
     }
   ]
