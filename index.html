@@ -1,35 +1,23 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+---
+layout: default
+---
 
-		<script src="openui5/resources/sap-ui-core.js"
-				id="sap-ui-bootstrap"
-				data-sap-ui-libs="sap.ui.commons"
-				data-sap-ui-xx-bindingSyntax="complex"
-				data-sap-ui-resourceroots='{"view": "./"}'
-				data-sap-ui-theme="sap_bluecrystal">
-		</script>
-		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
-		
-		
-		<script>
-				sap.ui.localResources("view");
-                var view = sap.ui.view({
-                    id:"iddevice_info",
-                    viewName:"view.device_info",
-                    type:sap.ui.core.mvc.ViewType.JS
-                    });
-                    view.placeAt("content");				
-		</script>
-		
-	</head>
-	<body class="sapUiBody" role="application">
-		<div id="content"></div>
-	</body>
-</html>
-	
+<div class="home">
 
+  <h1 class="page-heading">Posts</h1>
 
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
