@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 layout: default
 ---
@@ -12,3 +13,22 @@ layout: default
   </article>
 
 </div>
+=======
+{% include header.html %}
+
+  {% include nav.html %}
+
+  <div class="container">
+
+    <div id="content">
+
+    {% if page.title %}
+    <h1 class="posttitle">{{ page.title }}</h1>
+    {% endif %}
+
+    {{ content }}
+    </div>
+  </div>
+
+{% include footer.html %}
+>>>>>>> FETCH_HEAD

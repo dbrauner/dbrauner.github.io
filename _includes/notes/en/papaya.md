@@ -1,0 +1,1 @@
+**Papaya Ventures** is a startup Accelerator who believes passionately in the idea of accelerating digital startups in the Brazilian market &mdash; [LinkedIn](https://www.linkedin.com/company/papaya-ventures)

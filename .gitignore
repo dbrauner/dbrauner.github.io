@@ -1,2 +1,6 @@
 _site
+<<<<<<< HEAD
 .sass-cache
+=======
+node_modules
+>>>>>>> FETCH_HEAD
