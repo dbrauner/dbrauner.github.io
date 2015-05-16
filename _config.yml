@@ -9,7 +9,7 @@ domain: #
 commentlinks: true
 twitter-username: douglasbrauner
 feedburnerurl: 
-google-analytics-tracking-id: UA-4114546-2
+google-analytics-tracking-id: UA-63028067-1
 
 source:      .
 destination: ./_site
@@ -18,7 +18,7 @@ paginate_path: 'blog/page:num'
 
 future:      true
 lsi:         false
-pygments:    false
+highlighter: pygments
 markdown:    kramdown
 permalink:   /:title/
 paginate: 5
