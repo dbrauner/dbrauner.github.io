@@ -12,16 +12,16 @@ Recentemente eu fui introduzido ao [OpenUI5](http://openui5.org/), uma bibliotec
 
 ![OpenUI5 Logo](/assets/img/posts/openui5-logo.jpg)
 
-A ferramenta foi criada e é mantida pela [SAP](http://www.sap.com), mas é um recurso opensource e está disponibilizado no [GitHub](https://github.com/SAP/openui5/), dessa forma, você ainda pode contribuir com correções e novas implementações, ou dar um [fork](https://github.com/SAP/openui5#fork-destination-box) e customizá-lo do seu jeito!
+A ferramenta foi criada e é mantida pela [SAP](http://www.sap.com), mas é um recurso opensource e está disponibilizado no [GitHub](https://github.com/SAP/openui5/), dessa forma, você ainda pode contribuir com correções e novas implementações a partir de um [fork](https://github.com/SAP/openui5#fork-destination-box), ou apenas customizá-lo do seu jeito.
 
-Mas vamos ao que interessa, que tal partir do ponto zero e iniciar uma aplicação usando o Sublime?
+Mas vamos ao que interessa, que tal partir do ponto zero e iniciar uma aplicação usando o **Sublime**?
 <!-- more -->
 
 ![App OpenUI5](/assets/img/posts/app-openui5.png)
 
 Bom, primeiramente eu fiz o download da [Runtime](http://openui5.org/download.html) e coloquei em uma pasta que será copiada posteriormente para o resources do projeto. 
 
-Não posso deixar de comentar que atualmente é possível criar as aplicações a partir do Eclipse e instalar os plugins da SAP que são exigidos para criar uma aplicação UI5, eu particularmente acho o Sublime muito mais fácil e leve de se usar, se alguém quiser alguma dica de como utilizar pelo Eclipse, só sugerir nos comentários ou entrar em contato direto comigo que escrevo algo a respeito.
+Não posso deixar de comentar que atualmente é possível criar as aplicações a partir do **Eclipse** e instalar os plugins da **SAP** que são exigidos para criar uma aplicação UI5, eu particularmente acho o Sublime muito mais fácil e leve de se usar, se alguém quiser alguma dica de como utilizar pelo Eclipse, só sugerir nos comentários ou entrar em contato direto comigo que escrevo algo a respeito.
 
 <h2>Sublime</h2>
 
@@ -32,7 +32,7 @@ Seguindo nesta linha, foi criado o projeto [SublimeUI5](https://github.com/qmacr
 Um dos recursos interessantes é poder criar projetos a partir de Templates, semelhante ao que as IDE's fazem para linguagens, como Java, que já criam um 'Hello World' e você segue dali. Para isto, primeiro é necessário fazer alguns ajustes no Sublime:
 
 
-1 - Instalar o [Package Control](https://packagecontrol.io/installation) - O Package Control é uma ferramenta necessária para instalar plugins com vários recursos, chamados de Packages, como o SublimeUI5 é um destes, precisamos installationlar este plugin. 
+1 - Instalar o [**Package Control**](https://packagecontrol.io/installation) - O Package Control é uma ferramenta necessária para instalar plugins com vários recursos, chamados de Packages, como o SublimeUI5 é um destes, precisamos installationlar este plugin. 
 Para o Sublime Text 3, é só teclar `Ctrl + '` e colar o seguinte na caixa de comando que irá aparecer:
 
 {% highlight javascript %}
@@ -41,9 +41,9 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
 
 {% endhighlight %}
 
-2 - Instalar o STProjectMaker. Já que temos o Package Control, é só ir no Sublime, digitar `Ctrl + Shift + P` e procurar pelo Snippet `Package Control: Install Package`, depois disto é só procurar por `STProjectMaker`.
+2 - Instalar o [**STProjectMaker**](https://github.com/bit101/STProjectMaker). Já que temos o Package Control, é só ir no Sublime, digitar `Ctrl + Shift + P` e procurar pelo Snippet `Package Control: Install Package`, depois disto é só procurar por `STProjectMaker`.
 
-3 - O próximo passo é obter o SublimeUI5, então vá para `Preferences -> Browse Packages...` Dentro desta pasta você deve fazer o checkout do projeto, então use o prompt de comando (cmd) para ir até o diretório e digite:
+3 - O próximo passo é obter o [**SublimeUI5**](https://github.com/qmacro/SublimeUI5), então vá para `Preferences -> Browse Packages...` Dentro desta pasta você deve fazer o checkout do projeto, então use o prompt de comando (cmd) para ir até o diretório e digite:
 
 {% highlight bash %}
 
@@ -62,15 +62,19 @@ git clone https://github.com/qmacro/SublimeUI5.git
 Lembrando que o caminho `C:/Users/Douglas/AppData/Roaming/` é relativo ao meu computador, você deve garantir que o caminho é válido na sua instalação.
 
 Pronto! Agora você tem tudo pronto para começar um projeto utilizando o OpenUI5!
+![Templates disponíveis](/assets/img/post/app-list-templates.png)
 
 Vamos começar por um template simples:
-Primeiro você deve usar o recurso que foi instalado para criar novos projetos, então no Sublime você digita `Shift + Ctrl + N` ou vai em `Project -> Create Project`. Uma lista com os templates disponíveis irá aparecer, para este exemplo iremos usar o primeiro, `UI5 JS TileContainer`. Após o Enter você deve informar o nome e a pasta onde o projeto irá ficar. Tudo certo? agora vá em Open folder e escolha a pasta do projeto, uma lista com os arquivos do projeto irá aparecer numa aba à esquerda. 
+Primeiro você deve usar o recurso que foi instalado para criar novos projetos, então no Sublime você digita `Shift + Ctrl + N` ou vai em `Project -> Create Project`. Uma lista com os templates disponíveis irá aparecer, para este exemplo iremos usar o primeiro, `UI5 JS TileContainer`. Após o Enter você deve informar o nome e a pasta onde o projeto irá ficar. Tudo certo? agora vá em `Open folder` e escolha a pasta do projeto, uma lista com os arquivos do projeto irá aparecer numa aba à esquerda. 
+![Ajuste no index.html](/assets/img/post/app-index-config.png)
 
-No arquivo index.html deve ser ajustado o caminho relativo da pasta resources do openui5-sdk, recomendo fazer como eu fiz, fazer uma cópia e colocar na pasta do projeto.
+No arquivo `index.html` deve ser ajustado o caminho relativo da pasta resources do `openui5-sdk`, recomendo fazer como eu fiz, fazer uma cópia e colocar na pasta do projeto.
 
-Por ser um projeto totalmente baseado em HTML + CSS + Javascript, não existem muitas exigências quanto ao servidor em que a aplicação deve rodar, ela só não roda diretamente no browser ao colocar o caminho relativo, por causa de algumas restrições do browser quanto às requisições HTTP que a biblioteca faz para a inicialização, isto quer dizer que: Se quisermos rodar a aplicação localmente no PC, devemos criar um servidor que irá ficar escutando no localhost da máquina.
+<h2>Mongoose</h2> ![Mongoose Icon](/assets/img/posts/mongoose-icon.png)
 
-Para não nos delongarmos mais no assunto, vou introduzir um modelo de servidor local muito leve e simples de usar, o [Mongoose](https://code.google.com/p/mongoose/) é uma ferramenta desenvolvida pela *Google*, e constitui de apenas um arquivo executável que você joga na pasta onde quer que o servidor seja executado, após isto, é só ir no browser e digitar `localhost:4000` (a porta padrão do servidor), ele irá buscar pelo arquivo `index.html` e irá executar a aplicação para você. Não é incrível?
+Por ser um projeto totalmente baseado em **HTML + CSS + Javascript**, não existem muitas exigências quanto ao servidor em que a aplicação deve rodar, ela só não roda diretamente no browser ao colocar o caminho relativo, por causa de algumas restrições do browser quanto às requisições HTTP que a biblioteca faz para a inicialização, isto quer dizer que: Se quisermos rodar a aplicação localmente no PC, devemos criar um servidor que irá ficar escutando no localhost da máquina.
+
+Para não nos delongarmos mais no assunto, vou introduzir um modelo de servidor local muito leve e simples de usar, o [Mongoose](https://code.google.com/p/mongoose/) é uma ferramenta desenvolvida pela **Google**, e constitui de apenas um arquivo executável que você joga na pasta onde quer que o servidor seja executado, após isto, é executar o arquivo e ir no browser e digitar `localhost:4000` (a porta padrão do servidor), ele irá buscar pelo arquivo `index.html` e irá executar a aplicação para você. Não é incrível?
 
 Pronto! Agora é só botar a mão na massa e criar a sua aplicação! Se alguém tiver interesse, explico como se pode fazer o upload em um servidor, até mesmo o GitHub Pages serve!
 
