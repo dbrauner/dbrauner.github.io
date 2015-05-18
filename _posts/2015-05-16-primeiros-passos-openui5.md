@@ -49,7 +49,7 @@ git clone https://github.com/qmacro/SublimeUI5.git
 
 3 - Agora vá para `Preferences -> Package Settings -> Project Maker -> Settings User`, dentro deste arquivo você deve configurar o caminho da pasta de templates que está dentro do projeto que você acabou de baixar. No meu caso ficou assim:
 
-<pre class="prettyprinter lang-js">
+<pre class="prettyprint lang-js">
 { "template_path": "C:/Users/Douglas/AppData/Roaming/Sublime Text 3/Packages/SublimeUI5/Templates/" } 
 </pre>
 
