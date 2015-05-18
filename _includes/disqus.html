@@ -1,17 +1,13 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
-  var disqus_shortname = 'douglasbrauner',
-      disqus_url = '';
-
-  {% if page.oldUrl %}
-  disqus_url = "{{ page.oldUrl }}";
-  {% else %}
-  disqus_url = "http://douglasbrauner.com{{ page.url }}";
-  {% endif %}
-
-  (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'douglasbrauner';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
 </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>

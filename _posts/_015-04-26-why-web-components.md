@@ -1,4 +1,4 @@
-	---
+---
 layout: post
 title: "Why Web Components?"
 description: "By now, you may have heard a lot of things about Web Components. Some people say it's the promise land, others say it has been oversold. Although they're not going to solve all your life's problems, they do provide a paradigm shift from the traditional approach of web development."
