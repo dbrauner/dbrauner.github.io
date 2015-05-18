@@ -192,8 +192,9 @@ fieldset {
 
 .post img {
 	border: 1px solid #DBDBDB !important;
-	background: #E9E9E9;
 	border-radius: 6px;
+	position: absolute;
+	left: 50%;
 }
 
 .footnotes {
@@ -416,7 +417,6 @@ h1.sitetitle, h2.sitetitle {
 .sitetitle {
 	font-size: 36px;
 	font-family: 'ChunkFive', Helvetica, sans-serif;
-	text-transform: lowercase;
 	font-weight: 100;
 	display: block;
 	border: none;

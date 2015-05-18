@@ -35,38 +35,32 @@ Um dos recursos interessantes é poder criar projetos a partir de Templates, sem
 1 - Instalar o [**Package Control**](https://packagecontrol.io/installation) - O Package Control é uma ferramenta necessária para instalar plugins com vários recursos, chamados de Packages, como o SublimeUI5 é um destes, precisamos installationlar este plugin. 
 Para o Sublime Text 3, é só teclar `Ctrl + '` e colar o seguinte na caixa de comando que irá aparecer:
 
-{% highlight javascript %}
-
+<pre class="prettyprint lang-js">
 import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
-
-{% endhighlight %}
+</pre>
 
 2 - Instalar o [**STProjectMaker**](https://github.com/bit101/STProjectMaker). Já que temos o Package Control, é só ir no Sublime, digitar `Ctrl + Shift + P` e procurar pelo Snippet `Package Control: Install Package`, depois disto é só procurar por `STProjectMaker`.
 
 3 - O próximo passo é obter o [**SublimeUI5**](https://github.com/qmacro/SublimeUI5), então vá para `Preferences -> Browse Packages...` Dentro desta pasta você deve fazer o checkout do projeto, então use o prompt de comando (cmd) para ir até o diretório e digite:
 
-{% highlight bash %}
-
+<pre class="prettyprinter lang-bsh">
 git clone https://github.com/qmacro/SublimeUI5.git
- 
-{% endhighlight %} 
+</pre>
 
 3 - Agora vá para `Preferences -> Package Settings -> Project Maker -> Settings User`, dentro deste arquivo você deve configurar o caminho da pasta de templates que está dentro do projeto que você acabou de baixar. No meu caso ficou assim:
 
-{% highlight javascript %}
-
+<pre class="prettyprinter lang-json">
 { "template_path": "C:/Users/Douglas/AppData/Roaming/Sublime Text 3/Packages/SublimeUI5/Templates/" } 
-
-{% endhighlight %}
+</pre>
 
 Lembrando que o caminho `C:/Users/Douglas/AppData/Roaming/` é relativo ao meu computador, você deve garantir que o caminho é válido na sua instalação.
 
 Pronto! Agora você tem tudo pronto para começar um projeto utilizando o OpenUI5!
-![Templates disponíveis](/assets/img/post/app-list-templates.png)
+![Templates disponíveis](/assets/img/posts/app-list-template.png)
 
 Vamos começar por um template simples:
 Primeiro você deve usar o recurso que foi instalado para criar novos projetos, então no Sublime você digita `Shift + Ctrl + N` ou vai em `Project -> Create Project`. Uma lista com os templates disponíveis irá aparecer, para este exemplo iremos usar o primeiro, `UI5 JS TileContainer`. Após o Enter você deve informar o nome e a pasta onde o projeto irá ficar. Tudo certo? agora vá em `Open folder` e escolha a pasta do projeto, uma lista com os arquivos do projeto irá aparecer numa aba à esquerda. 
-![Ajuste no index.html](/assets/img/post/app-index-config.png)
+![Ajuste no index.html](/assets/img/posts/app-index-config.png)
 
 No arquivo `index.html` deve ser ajustado o caminho relativo da pasta resources do `openui5-sdk`, recomendo fazer como eu fiz, fazer uma cópia e colocar na pasta do projeto.
 
@@ -76,6 +70,6 @@ Por ser um projeto totalmente baseado em **HTML + CSS + Javascript**, não exist
 
 Para não nos delongarmos mais no assunto, vou introduzir um modelo de servidor local muito leve e simples de usar, o [Mongoose](https://code.google.com/p/mongoose/) é uma ferramenta desenvolvida pela **Google**, e constitui de apenas um arquivo executável que você joga na pasta onde quer que o servidor seja executado, após isto, é executar o arquivo e ir no browser e digitar `localhost:4000` (a porta padrão do servidor), ele irá buscar pelo arquivo `index.html` e irá executar a aplicação para você. Não é incrível?
 
-Pronto! Agora é só botar a mão na massa e criar a sua aplicação! Se alguém tiver interesse, explico como se pode fazer o upload em um servidor, até mesmo o GitHub Pages serve!
+Pronto! Agora é só botar a mão na massa e criar a sua aplicação! Se alguém tiver interesse, explico como se pode fazer o upload em um servidor, até mesmo o **GitHub Pages** serve!
 
 Abraço!
