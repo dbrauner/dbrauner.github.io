@@ -43,19 +43,20 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
 
 3 - O próximo passo é obter o [**SublimeUI5**](https://github.com/qmacro/SublimeUI5), então vá para `Preferences -> Browse Packages...` Dentro desta pasta você deve fazer o checkout do projeto, então use o prompt de comando (cmd) para ir até o diretório e digite:
 
-<pre class="prettyprinter lang-bsh">
+<pre class="prettyprinter bsh">
 git clone https://github.com/qmacro/SublimeUI5.git
 </pre>
 
 3 - Agora vá para `Preferences -> Package Settings -> Project Maker -> Settings User`, dentro deste arquivo você deve configurar o caminho da pasta de templates que está dentro do projeto que você acabou de baixar. No meu caso ficou assim:
 
-<pre class="prettyprinter lang-json">
+<pre class="prettyprinter lang-js">
 { "template_path": "C:/Users/Douglas/AppData/Roaming/Sublime Text 3/Packages/SublimeUI5/Templates/" } 
 </pre>
 
 Lembrando que o caminho `C:/Users/Douglas/AppData/Roaming/` é relativo ao meu computador, você deve garantir que o caminho é válido na sua instalação.
 
 Pronto! Agora você tem tudo pronto para começar um projeto utilizando o OpenUI5!
+
 ![Templates disponíveis](/assets/img/posts/app-list-template.png)
 
 Vamos começar por um template simples:
