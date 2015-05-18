@@ -193,8 +193,9 @@ fieldset {
 .post img {
 	border: 1px solid #DBDBDB !important;
 	border-radius: 6px;
-	position: absolute;
+	position: relative;
 	left: 50%;
+	right: 50%;
 }
 
 .footnotes {
