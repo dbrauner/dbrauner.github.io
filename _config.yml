@@ -8,12 +8,12 @@ url: http://dbrauner.github.io
 domain: #
 commentlinks: true
 twitter-username: douglasbrauner
-feedburnerurl: 
+feedburnerurl:
 google-analytics-tracking-id: UA-63028067-1
 
 source:      .
 destination: ./_site
-plugins:     ./_plugins
+plugins_dir:     ./_plugins
 paginate_path: 'blog/page:num'
 
 future:      true
@@ -38,7 +38,7 @@ kramdown:
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  use_coderay: false
+  enable_coderay: false
 
   coderay:
     coderay_wrap: div
