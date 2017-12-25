@@ -1,7 +1,0 @@
-{
-  "private": true,
-  "devDependencies": {
-    "grunt": "0.4.1",
-    "grunt-lintspaces": "0.2.203"
-  }
-}

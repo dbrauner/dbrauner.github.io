@@ -1,101 +1,101 @@
-# [zenorocha.com](http://zenorocha.com)
+# Strata for Jekyll
 
-My personal website where I talk about front-end development like HTML5, CSS3 and JavaScript.
+A simple, responsive blog theme for the [Jekyll](http://jekyllrb.com) static site generator using [HTML5 UP's Strata](http://html5up.net/strata) design.
 
-## How it works?
+![preview](preview.jpg)
 
-I use [Jekyll](http://jekyllrb.com/), a static generator in Ruby, to create this blog.
+Browse the [demo](http://davidforster.com/strata-jekyll/).
 
-## First steps
+## How to use
 
-1. Install [Git](http://git-scm.com/downloads) and [Ruby](http://www.ruby-lang.org/pt/downloads/), in case you don't have them yet.
+### Quick start
 
-2. Once installed these dependencies, open up the terminal and install [Jekyll](http://jekyllrb.com/) with the following command:
+If you just want to get a blog up & running at [GitHub Pages](https://pages.github.com) then simply fork this repository to your own GitHub account and name the new repository *\<yourgithubusername\>.github.io*. GitHub should then start hosting your site at *http://\<yourrgithubusername\>.github.io/*. If you'd like to use your own domain name you can follow GitHub's guide to using a [custom domain](https://help.github.com/articles/using-a-custom-domain-with-github-pages/).
 
-  ```sh
-  $ gem install jekyll
-  ```
+Edit the `_config.yml` file and use the options available in the theme, as mentioned below in the features section, to customise your site.
 
-3. Now clone the project:
+I recommend Development Seed's awesome [Prose](http://prose.io) editor to write your posts.
 
-  ```sh
-  $ git clone git@github.com:zenorocha/zenorocha.com.git
-  ```
+### Local development
 
-4. Navigate to the project folder:
+If you want to run and develop locally on your own computer then you'll need the Ruby programming language and Jekyll installed. The Jekyll website has a handy [installation guide](http://jekyllrb.com/docs/installation/) in their online documentation. Once installed, you can download or clone this repository and run `bundle exec jekyll serve` from the root.
 
-  ```sh
-  $ cd zenorocha.com
-  ```
+## Features
 
-5. And finally run:
+### Disqus comments
 
-  ```sh
-  $ jekyll server --watch
-  ```
+[Disqus](https://disqus.com) comments appear beneath posts. Add your Disqus website's shortname to `_config.yml` as `disqus_shortname:`. Leave `disqus_shortname` blank to disable comments completely or add `disqus: disabled` to a post's front matter to disable comments just for that page.
 
-You'll have access to the website at `localhost:4000` :D
+### Open Graph (Facebook) and Twitter Card meta tags
 
-## Browser Support
+All pages have Open Graph metadata added.
 
-![IE](https://cloud.githubusercontent.com/assets/398893/3528325/20373e76-078e-11e4-8e3a-1cb86cf506f0.png) | ![Chrome](https://cloud.githubusercontent.com/assets/398893/3528328/23bc7bc4-078e-11e4-8752-ba2809bf5cce.png) | ![Firefox](https://cloud.githubusercontent.com/assets/398893/3528329/26283ab0-078e-11e4-84d4-db2cf1009953.png) | ![Opera](https://cloud.githubusercontent.com/assets/398893/3528330/27ec9fa8-078e-11e4-95cb-709fd11dac16.png) | ![Safari](https://cloud.githubusercontent.com/assets/398893/3528331/29df8618-078e-11e4-8e3e-ed8ac738693f.png)
---- | --- | --- | --- | --- |
-IE 8+ ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ |
+All pages have Twitter Card metadata, though this requires `twitter_username:` to be configured in `_config.yml`. Twitter Card titles are trunacted at 70 characters and descriptions at 200 characters as per Twitter requirements.
 
-## File structure
+Both Open Graph and Twitter Cards can show images if you specify `image: <image url>` in a page's front matter.
 
-The basic file structure for the project is organized in the following way:
+### RSS and Atom feeds
 
-```
-.
-|-- _includes
-|-- _layouts
-|-- _plugins
-|-- _posts
-|-- _site
-|-- assets
-|-- _config.yml
-`-- index.html
-```
+The last 10 posts are available in RSS and Atom format at `rss.xml` and `atom.xml`. Both feeds are linked to from every page's metadata. The feed icon in the footer is configurable by setting `feed_icon:` in `_config.yml` to `rss` or `atom`, or the property can be left blank to remove it completely.
 
-### [_includes](https://github.com/zenorocha/blog/tree/master/_includes)
+### Feed footer
 
-They're blocks of code used to generate the main page of the site ([index.html](https://github.com/zenorocha/blog/blob/master/index.html)).
+A footer is added to every post in both the RSS and Atom feeds. This is configurable by editing `_includes/feed-footer.html`.
 
-### [_plugins](https://github.com/zenorocha/blog/tree/master/_plugins)
+### Sitemap
 
-Here you'll find all plugins used.
+Based on [David Ensinger's sitemap](http://davidensinger.com/2013/11/building-a-better-sitemap-xml-with-jekyll/), supported front matter is:
 
-### [_posts](https://github.com/zenorocha/blog/tree/master/_posts)
+- `sitemap.exclude: true` for pages, `post.published: false` for posts
+- `sitemap.lastmod` (defaults to the post or page date)
+- `sitemap.changefreq` (defaults to monthly)
+- `sitemap.priority` (defaults to 0.5)
 
-Here you'll find a list of files for each post.
+### Footer social media links
 
-### [_layouts](https://github.com/zenorocha/blog/tree/master/_layouts)
+Social media icon links in the footer are enabled by adding or removing values for the following sites in `_config.yml`.
 
-Here you'll find the default template of the application.
+- Facebook - `facebook_username:`
+- Twitter - `twitter_username:`
+- LinkedIn - `linkedin_username:`
+- Instagram - `instagram_username:`
+- Pinterest - `pinterest_username:`
+- Flickr - `flickr_username:`
+- GitHub - `github_username:`
 
-### _site
+You can change the icon order and add more options by editing `_includes/footer.html`. I recommended a maximum number of 5 icons in total (including the feed icon).
 
-Here you'll find all the static files generated by Jekyll after it's execution. However, this directory is unnecessary in our model, that's why it's ignored ([.gitignore](https://github.com/zenorocha/blog/blob/master/.gitignore)).
+### Reading time
 
-### [assets](https://github.com/zenorocha/blog/tree/master/assets)
+Reading time appears on post pages alongside the date and categories if the time is 1 minute or more, based on a reading rate of 180 words per minute (3 per second).
 
-Here you'll find all images, CSS and JS files.
+### Pagination
 
-### [_config.yml](https://github.com/zenorocha/blog/blob/master/_config.yml)
+Pagination is set at 5 posts per page, this can be altered by changing the `paginate:` property in `_config.yml`
 
-It stores most of the settings of the application.
+### Next/Previous posts
 
-### [index.html](https://github.com/zenorocha/blog/blob/master/index.html)
+The Next and Previous posts are displayed underneath every post (and Disqus comments if enabled) along with their excerpt.
 
-It's the file responsible for all application sections.
+### Custom 404
 
-*More information about Jekyll's file structure [here](https://github.com/mojombo/jekyll/wiki/Usage).*
+If you host your site with [GitHub Pages](https://pages.github.com) then a custom 404 page has been added (see `404.md`)
 
-## Credits
+### robots.txt and humans.txt
 
-Inspired by Andy Taylor.
+The theme includes a basic robots.txt file which allows all robots to crawl the entire site and directs them to the sitemap.xml file. There is also a humans.txt file giving credit to Myself ([David Forster](http://davidforster.com)) and AJ, the designer of Strata.
+
+## Acknowledgements
+
+- [AJ](https://twitter.com/n33co) and [HTML5UP](http://html5up.net) for the design of Strata
+- [David Ensinger](http://davidensinger.com) for a bunch of tips and ideas related to Jekyll
+
+## Contributions
+
+Issues, Pull Requests, Tweets and Forks are all greatly appreciated!
 
 ## License
 
-[MIT License](http://zenorocha.mit-license.org/) © Zeno Rocha
+The Jekyll theme is licensed under the [MIT](http://choosealicense.com/licenses/mit/) License
+
+The Strata design is licensed under the [Creative Commons Attribution 3.0 Unported](http://creativecommons.org/licenses/by/3.0/) license.

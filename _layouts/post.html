@@ -1,26 +1,61 @@
-{% include header.html %}
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    {% include head.html %}
+    {% include opengraph.html %}
+    {% include twittercard.html %}
+  </head>
+	<body id="top">
 
-  {% include nav.html %}
+		{% include header.html %}
 
-  <div class="container">
+		<!-- Main -->
+		<div id="main">
+      <article>
+        <header class="major">
+          <h2>{{ page.title }}</h2>
+          <p>
+            <i class="fa fa-calendar"></i> {{ page.date | date: "%d %B %Y" }}{% if page.categories %} on <i class="fa fa-tags"></i> {{ page.categories | array_to_sentence_string }}.{% endif %}
+            {% include readingtime.html %}
+          </p>
+        </header>
 
-    <div id="content" class="post">
+        <section>
+          {{ content }}
+        </section>
+      </article>
 
-    {% if page.link %}
-    <h1 class="linktitle"><a href="{{ page.link }}">{{ page.title }}</a></h1>
-    <p class="date">{{ page.date | date:"%d/%m/%Y" }}</p>
-    {% else %}
-    <h1 class="posttitle">{{ page.title }}</h1>
-    <p class="date articledate">{{ page.date | date:"%d/%m/%Y" }}</p>
-    {% endif %}
+      {% include disqus.html %}
 
-    {{ content }}
+      {% if page.previous.url or page.next.url %}
+      <hr />
+      <div class="row">
+        <article class="6u 12u$(xsmall) work-item">
+          {% if page.previous.url %}
+          <p>Previous</p>
+  				<h3><a href="{{ page.previous.url }}">{{page.previous.title}}</a></h3>
+  				<p>{{ page.previous.excerpt | strip_html }}</p>
+          {% endif %}
+  			</article>
+  			<article class="6u$ 12u$(xsmall) work-item">
+          {% if page.next.url %}
+          <p>Next</p>
+  				<h3><a href="{{ page.next.url }}">{{page.next.title}}</a></h3>
+  				<p>{{ page.next.excerpt | strip_html }}</p>
+          {% endif %}
+  			</article>
+      </div>
+      {% endif %}
 
-    <a rel="author" style="visibility: hidden;" href="https://profiles.google.com/dbbrauner">Douglas Brauner</a>
+		</div>
 
-    {% include disqus.html %}
+    {% include footer.html %}
+    {% include scripts.html %}
 
-    </div> <!-- /content -->
-  </div> <!-- /container -->
-
-{% include footer.html %}
+	</body>
+</html>

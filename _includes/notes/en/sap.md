@@ -1,1 +1,0 @@
-**SAP** Brazil está entre as mais importantes subsidiárias da empresa em todo o mundo. Com mais de 3.700 clientes, a companhia atua em todo o território nacional apoiada por uma rede de mais de 200 parceiros de negócios &mdash; [Website](http://www.sap.com/brazil/index.html)

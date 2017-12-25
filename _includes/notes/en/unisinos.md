@@ -1,1 +1,0 @@
-**Unisinos** A Universidade do Vale do Rio dos Sinos é uma instituição de ensino superior privada jesuíta localizada na cidade de São Leopoldo, na Região Metropolitana de Porto Alegre, Rio Grande do Sul. &mdash; [Website](www.unisinos.br) 

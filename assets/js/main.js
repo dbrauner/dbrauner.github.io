@@ -1,68 +1,120 @@
-$(function(){
+/*
+	Strata by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
 
-  // --- Active Nav --- //
+(function($) {
 
-  var url = window.location.pathname,
-      urlRegExp = new RegExp(url == '/' ? window.location.origin + '/?$' : url.replace(/\/$/,''));
+	var settings = {
 
-  $('#pagenav a').each(function(){
-      if(urlRegExp.test(this.href.replace(/\/$/,''))){
-          $(this).addClass('active');
-      }
-  });
+		// Parallax background effect?
+			parallax: true,
 
-  // --- Markdown Footnotes --- //
+		// Parallax factor (lower = more intense, higher = less intense).
+			parallaxFactor: 20
 
-  $("a[rel=footnote]").each(function(){
-    var link = $(this);
-    var token = link.attr('href').substr(1);
-    var footnoteContent = $(document.getElementById(token)).html();
+	};
 
-    // There is an issue with the line below that stops the clock-tap-scroll-to-top on iOS
-    $('body').append('<div id="overlay-' + token + '" class="footnoteContent">' + footnoteContent + '</div>');
+	skel.breakpoints({
+		xlarge: '(max-width: 1800px)',
+		large: '(max-width: 1280px)',
+		medium: '(max-width: 980px)',
+		small: '(max-width: 736px)',
+		xsmall: '(max-width: 480px)'
+	});
 
-    link.click(function(){
-      var $currentFootnote = $(document.getElementById('overlay-' + token));
+	$(function() {
 
-      // If the footnote is already displayed, hide it instead
-      if ($currentFootnote.is(':visible')) {
-        $currentFootnote.slideUp('fast');
+		var $window = $(window),
+			$body = $('body'),
+			$header = $('#header');
 
-      } else {
-        $('.footnoteContent').hide();
-        $currentFootnote.slideDown('fast');
-      }
+		// Disable animations/transitions until the page has loaded.
+			$body.addClass('is-loading');
 
-      return false;
-    });
-  });
+			$window.on('load', function() {
+				$body.removeClass('is-loading');
+			});
 
-  $('.footnoteContent a[rev=footnote]').remove();
-  $('.footnoteContent').prepend('<a href="#" class="closeFootnote">&times;</a>');
-  $('.closeFootnote').click(function(){
-    $(this).closest('.footnoteContent').slideUp('fast');
-    return false;
-  });
+		// Touch?
+			if (skel.vars.mobile) {
 
-  // --- Responsive Menu --- //
+				// Turn on touch mode.
+					$body.addClass('is-touch');
 
-  var header = $("#masthead"),
-      menu = $("ul#pagenav"),
-      menuButton = $("<div class='menubutton'><a href='#'><span></span><span></span><span></span></a></div>");
+				// Height fix (mostly for iOS).
+					window.setTimeout(function() {
+						$window.scrollTop($window.scrollTop() + 1);
+					}, 0);
 
-  menuButton.click(showMenu);
-  header.append(menuButton);
+			}
 
-  function showMenu (event) {
-    if (menu.is(":visible"))
-        menu.slideUp({complete:function(){$(this).css('display','')}});
-    else
-        menu.slideDown();
-  }
+		// Fix: Placeholder polyfill.
+			$('form').placeholder();
 
-  // Prevents # being appended to URL. Also Prevents jumping to the top of the page because of the # anchor.
-  $(".menubutton").click(function(event) {
-    event.preventDefault();
-  });
+		// Prioritize "important" elements on medium.
+			skel.on('+medium -medium', function() {
+				$.prioritize(
+					'.important\\28 medium\\29',
+					skel.breakpoint('medium').active
+				);
+			});
 
-});
+		// Header.
+
+			// Parallax background.
+
+				// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
+					if (skel.vars.browser == 'ie'
+					||	skel.vars.mobile)
+						settings.parallax = false;
+
+				if (settings.parallax) {
+
+					skel.on('change', function() {
+
+						if (skel.breakpoint('medium').active) {
+
+							$window.off('scroll.strata_parallax');
+							$header.css('background-position', 'top left, center center');
+
+						}
+						else {
+
+							$header.css('background-position', 'left 0px');
+
+							$window.on('scroll.strata_parallax', function() {
+								$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
+							});
+
+						}
+
+					});
+
+				}
+
+		// Main Sections: Two.
+
+			// Lightbox gallery.
+				$window.on('load', function() {
+
+					$('#two').poptrox({
+						caption: function($a) { return $a.next('h3').text(); },
+						overlayColor: '#2c2c2c',
+						overlayOpacity: 0.85,
+						popupCloserText: '',
+						popupLoaderText: '',
+						selector: '.work-item a.image',
+						usePopupCaption: true,
+						usePopupDefaultStyling: false,
+						usePopupEasyClose: false,
+						usePopupNav: true,
+						windowMargin: (skel.breakpoint('small').active ? 0 : 50)
+					});
+
+				});
+
+	});
+
+})(jQuery);
